@@ -1,5 +1,5 @@
 public class Level1 {
-    public static boolean walkersSearch(String sub) {
+    public static int walkersSearch(String sub) {
         int sum = 0;
 
         for (int i = 0; i < sub.length(); i++) {
@@ -8,7 +8,9 @@ public class Level1 {
             }
         }
 
-        return sum == 3;
+        if (sum == 3) return 1;
+
+        return 0;
     }
 
     public static boolean white_walkers(String village) {
@@ -17,6 +19,9 @@ public class Level1 {
 
         int start = 0;
         int finish = 0;
+
+        int count = 0;
+        int countFunc = 0;
 
         boolean flag = false;
 
@@ -28,22 +33,20 @@ public class Level1 {
                 flag = true;
             }
 
-            if (!flag || startInd == -1) {
-                flag = false;
-                continue;
-            }
+            if (!flag || startInd == -1) continue;
 
             start = Character.getNumericValue(village.charAt(startInd));
             finish = Character.getNumericValue(village.charAt(finishInd));
             String sub = village.substring(startInd, finishInd);
 
-            if (start + finish == 10 && !walkersSearch(sub)) {
-                return false;
+            if (start + finish == 10) {
+                count++;
+                countFunc += walkersSearch(sub);
             }
 
-            flag = true;
+            flag = false;
         }
 
-        return flag;
+        return count != 0 && count == countFunc;
     }
 }
