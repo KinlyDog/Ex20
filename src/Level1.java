@@ -23,17 +23,17 @@ public class Level1 {
         int numberOfWalkers = 0;
         int countFunc = 0;
 
-        boolean flag = false;
+        boolean isCitizen = false;
 
         for (int i = 0; i < village.length(); i++) {
             if (village.charAt(i) > 47 && village.charAt(i) < 58) {
                 startInd = finishInd;
                 finishInd = i;
 
-                flag = true;
+                isCitizen = true;
             }
 
-            if (!flag || startInd == -1) continue;
+            if (!isCitizen || startInd == -1) continue;
 
             start = Character.getNumericValue(village.charAt(startInd));
             finish = Character.getNumericValue(village.charAt(finishInd));
@@ -44,7 +44,7 @@ public class Level1 {
                 countFunc += walkersSearch(sub);
             }
 
-            flag = false;
+            isCitizen = false;
         }
 
         return numberOfWalkers != 0 && numberOfWalkers == countFunc;
