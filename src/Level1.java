@@ -20,7 +20,7 @@ public class Level1 {
         int start = 0;
         int finish = 0;
 
-        int count = 0;
+        int numberOfWalkers = 0;
         int countFunc = 0;
 
         boolean flag = false;
@@ -40,13 +40,13 @@ public class Level1 {
             String sub = village.substring(startInd, finishInd);
 
             if (start + finish == 10) {
-                count++;
+                numberOfWalkers++;
                 countFunc += walkersSearch(sub);
             }
 
             flag = false;
         }
 
-        return count != 0 && count == countFunc;
+        return numberOfWalkers != 0 && numberOfWalkers == countFunc;
     }
 }
