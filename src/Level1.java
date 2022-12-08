@@ -1,5 +1,5 @@
 public class Level1 {
-    public static int walkersSearch(String sub) {
+    public static int detectedWalker(String sub) {
         int sum = 0;
 
         for (int i = 0; i < sub.length(); i++) {
@@ -41,7 +41,7 @@ public class Level1 {
 
             if (start + finish == 10) {
                 numberOfWalkers++;
-                countFunc += walkersSearch(sub);
+                countFunc += detectedWalker(sub);
             }
 
             isCitizen = false;
