@@ -17,8 +17,8 @@ public class Level1 {
         int startInd = -1;
         int finishInd = -1;
 
-        int start = 0;
-        int finish = 0;
+        int start;
+        int finish;
 
         int numberOfWalkers = 0;
         int countFunc = 0;
